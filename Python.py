@@ -33,3 +33,29 @@
 #     if i > 25:
 #         print(i)
     
+# Question 12:
+# txt = input(str("Write a sentence: "))
+# x = txt.split()
+# for i in x:
+#     print(i)
+
+
+# txt = str(input("Write a sentence: "))
+# vowels = 0
+# for i in txt:
+#     if i == "a" or i == "e" or i == "i" or i == "o" or i == "u" or i =="A" or i =='E' or i =='I' or i =='O' or i =='U':
+#         vowels+=1
+# print(vowels)
+
+v = ["a","e","i","o","u"]
+txt = str(input("Write a sentence: "))
+vowels = 0
+for i in txt:
+    if i.lower() in v:
+        vowels+=1
+print(vowels)
+
+
+
+
+    
