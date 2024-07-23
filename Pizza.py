@@ -7,14 +7,14 @@ def menu():
 
 def order():
     x = 0
-    if do_not_set_0 != False:
+    if item is not None:
         item = item
     else:
         item = 0
     finish_order = False
     print(the_menu[item])
     while finish_order != True:
-        x = input("1.Next 2.Back 3.Done: " )
+        x = input("1.Next 2.Back 3.Done 4.Order: " )
         if x == 1:
             item = item + 1
             do_not_set_0 = True
@@ -25,19 +25,63 @@ def order():
             return order()
         elif x == 3:
             total()
+        elif x == 4:
+            orderlist.append(item) 
         else:
             print("An error has occurred, check what have you typed or context us by xxx-xxx-xxxx")
             return order()
 
-
+def listchecking():
+    user_finish_checking = False
+    x = 0
+    listLength = len(orderlist + 1)
+    for i in orderlist:
+        for e in listLength:
+            print(e)
+            print(i)
+    while user_finish_checking == False:
+        x = input("0.Done @.Back or type the number of the item you want to remove: ")
+        if x == 0:
+            user_finish_checking = True
+            total()
+        elif x == "@":
+            order()
+        else:
+            orderlist.pop(x - 1)
 	
 
-def total(order_list):
-    #look through their order list and calculate the cost
-    cost = 0
-    return cost
-do_not_set_0 = False 
-the_menu = ["Cheese","Tomato Sauce","Pineapple","Olive","onion","Broccoli","Artichokes","Cauliflower","Pepperoni","Sausage","Bacon","Mushroom"]
+def total():
+        cost = 0
+        for i in orderlist:
+            if i == "Cheese": 
+                cost = cost + 2
+            elif i == "Tomato Sauce":
+                cost = cost + 1
+            elif i == "Pineapple":
+                cost = cost + 5
+            elif i == "Olive":
+                cost = cost + 3
+            elif i == "Onion":
+                cost = cost + 2
+            elif i == "Broccoli":
+                cost = cost + 3
+            elif i == "Cauliflower":
+                cost = cost + 3
+            elif i == "Artichokes":
+                cost = cost + 4
+            elif i == "Pepperoni":
+                cost = cost + 4
+            elif i == "Sausage":
+                cost = cost + 6
+            elif i == "Bacon":
+                cost = cost + 3
+            elif i == "Mushroom":
+                cost = cost + 1
+        print(cost) 
+
+orderlist = []
+the_menu = ["Cheese","Tomato Sauce","Pineapple","Olive","Onion","Broccoli","Artichokes","Cauliflower","Pepperoni","Sausage","Bacon","Mushroom"]
+user_finish_checking = False
 user_exit = False
 while user_exit != True:
     print("Welcome to the Pizza Store!")
