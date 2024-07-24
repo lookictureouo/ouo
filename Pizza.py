@@ -5,31 +5,21 @@ def menu():
     
 
 
-def order():
+def order(the_menu, orderlist,the_menu_order):
     x = 0
-    if item is not None:
-        item = item
-    else:
-        item = 0
     finish_order = False
-    print(the_menu[item])
+    for i in the_menu:
+        print(i)
     while finish_order != True:
-        x = input("1.Next 2.Back 3.Done 4.Order: " )
-        if x == 1:
-            item = item + 1
-            do_not_set_0 = True
-            return order()
-        elif x == 2: 
-            item = item - 1
-            do_not_set_0 = True
-            return order()
-        elif x == 3:
+        x = input("0.Done or Insert the ID of the food to order: " )
+        if x <= 12 and x > 0:
+            orderlist.append(the_menu_order(x-1))
+        elif x == 0:
+            finish_order = True
             total()
-        elif x == 4:
-            orderlist.append(item) 
         else:
             print("An error has occurred, check what have you typed or context us by xxx-xxx-xxxx")
-            return order()
+    return order()
 
 def listchecking():
     user_finish_checking = False
@@ -50,37 +40,39 @@ def listchecking():
             orderlist.pop(x - 1)
 	
 
-def total():
+def total(orderlist):
+    
         cost = 0
         for i in orderlist:
-            if i == "Cheese": 
-                cost = cost + 2
-            elif i == "Tomato Sauce":
+            if i == the_menu_order(0): 
+                cost += 2
+            elif i == the_menu_order(1):
                 cost = cost + 1
-            elif i == "Pineapple":
+            elif i == the_menu_order(2):
                 cost = cost + 5
-            elif i == "Olive":
+            elif i == the_menu_order(3):
                 cost = cost + 3
-            elif i == "Onion":
+            elif i == the_menu_order(4):
                 cost = cost + 2
-            elif i == "Broccoli":
+            elif i == the_menu_order(5):
                 cost = cost + 3
-            elif i == "Cauliflower":
+            elif i == the_menu_order(6):
                 cost = cost + 3
-            elif i == "Artichokes":
+            elif i == the_menu_order(7):
                 cost = cost + 4
-            elif i == "Pepperoni":
+            elif i == the_menu_order(8):
                 cost = cost + 4
-            elif i == "Sausage":
+            elif i == the_menu_order(9):
                 cost = cost + 6
-            elif i == "Bacon":
+            elif i == the_menu_order(10):
                 cost = cost + 3
-            elif i == "Mushroom":
+            elif i == the_menu_order(11):
                 cost = cost + 1
         print(cost) 
 
 orderlist = []
-the_menu = ["Cheese","Tomato Sauce","Pineapple","Olive","Onion","Broccoli","Artichokes","Cauliflower","Pepperoni","Sausage","Bacon","Mushroom"]
+the_menu = ["1. Cheese","2. Tomato Sauce","3. Pineapple","4. Olive","5. Onion","6. Broccoli","7. Artichokes","8. Cauliflower","9. Pepperoni","10. Sausage","11. Bacon","12. Mushroom"]
+the_menu_order = ["Cheese","Tomato Sauce","Pineapple","Olive","Onion","Broccoli","Artichokes","Cauliflower","Pepperoni","Sausage","Bacon","Mushroom"]
 user_finish_checking = False
 user_exit = False
 while user_exit != True:
