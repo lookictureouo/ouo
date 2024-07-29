@@ -67,9 +67,9 @@ def total(orderlist):
             elif i == the_menu_order[10]:
                 cost = cost + 3
             elif i == the_menu_order[11]:
-                cost = cost + 1
+                cost = cost + 2
         print(cost, end=" ") 
-        print("$")
+        print("$.")
 
 orderlist = []
 food_menu = ["self order pizza", ""]
@@ -88,5 +88,5 @@ while user_exit != True:
     if user_input == 4:
         user_exit = True
         print("Thanks for stopping by!\n")
-    #Your code can go here
-    #You may want to add to this if statement 
+    #Your code can go here kkk
+    #You may want to add to this if statement .
