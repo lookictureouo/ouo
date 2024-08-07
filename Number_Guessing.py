@@ -7,6 +7,10 @@ def game():
     while try_left > 0:
         print("Try Left: " +  f"{try_left}")
         user_guess = input(f"{user_name}" + ", " + "Please Take your guess: ")
+        try:
+            user_guess = int(user_guess)
+        except ValueError:
+            print("Please only enter a number")
         try_left -= 1
         if user_guess == answer:
             try_left = 0
@@ -18,6 +22,9 @@ def game():
         if try_left == 0:
             print("Sorry " f"{user_name}, you have uses all your trys")
             again()
+
+
+
 
 def again():
     print("play again? Y or N") 
@@ -31,7 +38,7 @@ def again():
         return again()
 
 def to_start():
-    start = input("Press 1 to stat the Game: ")
+    start = input("Press 1 to start the Game: ")
     try:
         print(start)
     except ValueError:
