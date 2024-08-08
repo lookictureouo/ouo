@@ -14,7 +14,7 @@ def game():
         try_left -= 1
         if user_guess == answer:
             try_left = 0
-            print("Congratulations!!! You Win!!!")
+            print("Congratulations!!!")
             again()
         else:
             print("You are so close, please try again.")
